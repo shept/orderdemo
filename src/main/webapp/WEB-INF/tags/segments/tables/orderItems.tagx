@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jsp:root 
+	xmlns:jsp="http://java.sun.com/JSP/Page" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:spring="http://www.springframework.org/tags" 
+	xmlns:form="http://www.springframework.org/tags/form" 
+	xmlns:shept-pager="http://www.shept.org/tags/shept-pager" 
+	xmlns:shept-opt="http://www.shept.org/tags/shept-opt" 
+	xmlns:shept-core="http://www.shept.org/tags/shept-core" 
+	xmlns:app="urn:jsptagdir:/WEB-INF/tags/app" 
+	version="2.0">
+	  
+  <shept-core:table> 
+    <jsp:attribute name="tabHeader"> 
+      <tr class="sheptTableHeader"> 
+        <th/>  
+        <th style="width: 1%;" > 
+          <shept-pager:sort sortCol="quantity" title="Anzahl"/> 
+        </th>  
+        <th style="width: 95%; nowrap:nowrap"> 
+          <shept-pager:sort sortCol="allItems" title="Artikel" disabled="true" /> 
+        </th>  
+        <th> 
+          <shept-pager:sort sortCol="item.price" title="Preis"/> 
+        </th>  
+        <th > 
+          <shept-pager:sort sortCol="name" title="Summe" disabled="true" /> 
+        </th>  
+        <th/>  
+        <th/> 
+      </tr> 
+    </jsp:attribute>
+    
+    <jsp:attribute name="tabRow"> 
+      <tr class="${rowClassDefault}"> 
+        <td> 
+          <shept-opt:iconRow/> 
+        </td>  
+        <td > 
+          <form:input path="quantity" cssErrorClass="sheptFieldError"  cssStyle="width: 95%" /> 
+        </td>  
+        <td style="width: 95%" > 
+          <c:choose> 
+            <c:when test="${isTransient}"> 
+              <form:input path="itemIdComplete" id="${rowPathId}itemIdComplete" autocomplete="off" cssStyle="width: 95%; min-width: 20em;"/>  
+              <script> 
+					$("#${rowPathId}itemIdComplete").autocomplete("autoComplete/items", {minChars:3});
+              </script> 
+            </c:when>  
+            <c:otherwise>${rowObject.item.name}</c:otherwise> 
+          </c:choose> 
+        </td>  
+        <td>${rowObject.price}</td>  
+        <td>${rowObject.totalPrice}</td>  
+        <td> 
+          <shept-opt:confirmDeleteRow/> 
+        </td> 
+      </tr> 
+    </jsp:attribute>
+     
+    <jsp:attribute name="tabSubmit"> 
+      <div>Gesamtanzahl: ${count} Gesamtsumme: ${sum}</div>  
+      <shept-opt:submission/> 
+    </jsp:attribute> 
+  </shept-core:table> 
+</jsp:root>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jsp:root 
+	xmlns:jsp="http://java.sun.com/JSP/Page" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:spring="http://www.springframework.org/tags" 
+	xmlns:form="http://www.springframework.org/tags/form" 
+	xmlns:shept-pager="http://www.shept.org/tags/shept-pager" 
+	xmlns:shept-opt="http://www.shept.org/tags/shept-opt" 
+	xmlns:shept-core="http://www.shept.org/tags/shept-core" 
+	version="2.0">
+	  
+  <shept-core:table> 
+    <jsp:attribute name="tabHeader"> 
+      <tr class="sheptTableHeader"> 
+        <th/>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="ordernumber" title="Bestellnummer"/> 
+        </th>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="date" title="Datum"/> 
+        </th>  
+        <th/>  
+        <th/> 
+      </tr> 
+    </jsp:attribute>
+     
+    <jsp:attribute name="tabRow"> 
+      <tr class="${rowClassDefault}"> 
+        <td> 
+          <shept-opt:iconRow/> 
+        </td>  
+        <td> 
+        	${rowObject.ordernumberString}
+<!--           <form:input path="ordernumberString" cssErrorClass="sheptFieldError"/>
+ --> 
+        </td>  
+        <td> 
+          <form:input path="date" cssErrorClass="sheptFieldError"/> 
+        </td>  
+        <td> 
+          <shept-opt:chainRow chainName="orderItems" defaultText="orderItems"/> 
+        </td>  
+        <td> 
+          <shept-opt:confirmDeleteRow/> 
+        </td> 
+      </tr> 
+    </jsp:attribute> 
+     
+    <jsp:attribute name="tabSubmit"> 
+      <shept-opt:submission/> 
+    </jsp:attribute> 
+  </shept-core:table> 
+</jsp:root>

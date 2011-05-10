@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd" >
+
+	<context:annotation-config />
+
+	<bean id="bindingInitializer" abstract="true" parent="sheptBindingComponentInitializerTemplate" >
+		<property name="formatResolver" ref="localeFormatResolver" />
+	</bean>
+	 
+	<bean id="baseSegmentListConfig" abstract="true" parent="sheptDataGridTemplate" >
+		<property name="componentBindingInitializer">
+			<bean parent="bindingInitializer" />
+		</property>
+	</bean>
+
+<!-- NOTE these are example segments -->
+	<bean name="customers" parent="baseSegmentListConfig">
+		<property name="entityClass" value="org.shept.apps.demo.order.orm.Customer" />
+		<property name="filterClass" value="org.shept.apps.demo.order.web.controller.filter.CustomerFilter" />
+		<property name="componentBindingInitializer">
+			<bean parent="bindingInitializer" >
+				<property name="calendarEditors">
+					<map>
+					  <entry key="birthdate" value="DATE_FORMAT_SHORT" />
+					</map>
+				</property>
+ 			</bean>
+		</property>
+	</bean>
+
+	<bean name="addresses" parent="baseSegmentListConfig">
+		<property name="entityClass" value="org.shept.apps.demo.order.orm.Address" />
+		<property name="componentPostprocessor" ref="commonPostProcessor" />
+	</bean>
+
+	<bean name="orders" parent="sheptDataGridTemplate">
+		<property name="entityClass" value="org.shept.apps.demo.order.orm.Order" />
+	</bean>
+
+	<bean name="orderItems" parent="sheptDataGridTemplate">
+		<property name="entityClass" value="org.shept.apps.demo.order.orm.OrderItem" />
+		<property name="newModelSize" value="3" />
+		<property name="pageSize" value="25" />
+		<property name="componentPostprocessors">
+			<list>
+				<ref bean="commonPostProcessor" />
+				<ref bean="calculateOrderItemsPostProcessor" />
+			</list>
+		</property>
+		<property name="transaction">
+			<bean parent="sheptTransactionTemplate" p:save="saveOrderItems" />
+		</property>
+	</bean>
+
+	<bean name="items" parent="sheptDataGridTemplate">
+		<property name="pageSize" value="50" />
+		<property name="entityClass" value="org.shept.apps.demo.order.orm.Item" />
+		<property name="componentPostprocessor" ref="commonPostProcessor" />
+	</bean>
+
+	<bean id="commonPostProcessor" class="org.shept.apps.demo.order.web.controller.postprocessors.CommonPostProcessor" />
+	<bean id="calculateOrderItemsPostProcessor" class="org.shept.apps.demo.order.web.controller.postprocessors.CalculateOrderItemsPostProcessor" />
+
+
+</beans>

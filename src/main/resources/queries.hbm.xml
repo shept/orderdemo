@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Additional mapping for queries in HQL -->
+
+<hibernate-mapping package="org.shept.apps.demo.order.orm">
+
+	<!-- query returning sum of all items -->
+	<query name="qryOrderSum">
+		select sum(quantity * item.price) from OrderItem where order.id = :orderId
+	</query>
+
+	<!-- query returning sum of all items -->
+	<query name="qryOrderCount">
+		select count(*) from OrderItem where order.id = :orderId
+	</query>
+
+</hibernate-mapping>

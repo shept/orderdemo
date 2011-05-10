@@ -1,0 +1,14 @@
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:spring="http://www.springframework.org/tags"
+>
+
+<div id="footer">
+	<a class="${servletPath eq '/impressum.sh' ? 'naviSel' : 'navi'}" href="http:imprint.sh">
+		<spring:message code="imprint" />
+	</a>
+</div>
+
+</html>

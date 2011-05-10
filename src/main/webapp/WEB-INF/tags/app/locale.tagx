@@ -1,0 +1,20 @@
+<jsp:root
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	version="2.0"
+>
+	<div>
+		|&#160;
+		<a href="?locale=de">
+			<img class="flag" alt="Deutsch" src="${images}/16x16/flags/de.png" />
+		</a>
+
+		&#160;|&#160;
+		<a href="?locale=en">
+			<img class="flag" alt="English" src="${images}/16x16/flags/us.png" />
+		</a>
+		
+	</div>
+
+</jsp:root>
+

@@ -1,0 +1,59 @@
+<jsp:root
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:shept-core="http://www.shept.org/tags/shept-core"
+
+	xmlns:view="urn:jsptagdir:/WEB-INF/tags/segments/views"
+	xmlns:filter="urn:jsptagdir:/WEB-INF/tags/segments/filters"
+	xmlns:table="urn:jsptagdir:/WEB-INF/tags/segments/tables"
+	version="2.0"
+>
+
+  <c:choose>
+  
+  <!-- start with your first subForm as shown in this template -->
+	<c:when test="${subFormName eq 'customers'}">
+	 <shept-core:subForm headerCode="customer" >
+		<filter:customers />
+		<table:customers />
+	 </shept-core:subForm>
+	</c:when>
+
+  <!-- start with your first subForm as shown in this template -->
+	<c:when test="${subFormName eq 'addresses'}">
+	 <shept-core:subForm headerCode="address" >
+	   <table:address />
+	 </shept-core:subForm>
+	</c:when>
+
+  <!-- start with your first subForm as shown in this template -->
+	<c:when test="${subFormName eq 'orders'}">
+	 <shept-core:subForm headerCode="order" >
+	   <table:orders />
+	 </shept-core:subForm>
+	</c:when>
+
+  <!-- start with your first subForm as shown in this template -->
+	<c:when test="${subFormName eq 'orderItems'}">
+	 <shept-core:subForm headerCode="orderItems" >
+	   <table:orderItems />
+	 </shept-core:subForm>
+	</c:when>
+
+  <!-- start with your first subForm as shown in this template -->
+	<c:when test="${subFormName eq 'items'}">
+	 <shept-core:subForm headerCode="items" >
+		<filter:items />
+		<table:items />
+	 </shept-core:subForm>
+	</c:when>
+
+	
+	<!--  fill in as many subForms as you need here -->
+	
+	<c:otherwise>
+		<p style="color: red">Shept contract error: The requested form <b>'${subFormName}'</b> needs to be registered within your applications <b>segments.tagx</b></p>
+	</c:otherwise>
+  </c:choose>
+
+</jsp:root>

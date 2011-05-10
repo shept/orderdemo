@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jsp:root 
+	xmlns:jsp="http://java.sun.com/JSP/Page" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:spring="http://www.springframework.org/tags" 
+	xmlns:form="http://www.springframework.org/tags/form" 
+	xmlns:shept-pager="http://www.shept.org/tags/shept-pager" 
+	xmlns:shept-opt="http://www.shept.org/tags/shept-opt" 
+	xmlns:shept-core="http://www.shept.org/tags/shept-core" 
+	version="2.0">
+	  
+  <shept-core:table> 
+    <jsp:attribute name="tabHeader"> 
+      <tr class="sheptTableHeader"> 
+        <th/>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="addressType" title="Typ"/> 
+        </th>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="country" title="Land"/> 
+        </th>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="city" title="Ort"/> 
+        </th>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="zipcode" title="Plz"/> 
+        </th>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="street" title="Strasse"/> 
+        </th>  
+        <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="number" title="Nummer"/> 
+        </th>  
+        <th/>  
+        <th/> 
+      </tr> 
+    </jsp:attribute>
+    
+    <jsp:attribute name="tabRow"> 
+      <tr class="${rowClassDefault}"> 
+        <td> 
+          <shept-opt:iconRow/> 
+        </td>  
+        <td> 
+          <form:select path="addressType"> 
+            <form:option value="" label="---"/>  
+            <form:options items="${addressTypes}"/> 
+          </form:select> 
+        </td>  
+        <td> 
+          <form:input path="country" cssErrorClass="sheptFieldError"/> 
+        </td>  
+        <td> 
+          <form:input path="city" cssErrorClass="sheptFieldError"/> 
+        </td>  
+        <td> 
+          <form:input path="zipcode" cssErrorClass="sheptFieldError"/> 
+        </td>  
+        <td> 
+          <form:input path="street" cssErrorClass="sheptFieldError"/> 
+        </td>  
+        <td> 
+          <form:input path="number" cssErrorClass="sheptFieldError"/> 
+        </td>  
+        <td> 
+          <shept-opt:confirmDeleteRow/> 
+        </td> 
+      </tr> 
+    </jsp:attribute>
+      
+    <jsp:attribute name="tabSubmit"> 
+      <shept-opt:submission/> 
+    </jsp:attribute> 
+  </shept-core:table> 
+</jsp:root>

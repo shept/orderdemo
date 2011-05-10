@@ -1,0 +1,53 @@
+<html 
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+>
+	<c:if test="${empty isJQueryAutocompleteIncluded}">
+		<c:set var="isJQueryAutocompleteIncluded" value="true" scope="request"/>
+		<script type="text/javascript" src="includes/js/JQuery/jquery.autocomplete.js" charset="UTF-8">
+		<!-- jspx fix comment / Tomcat problem ?  -->
+		</script>
+
+<style>
+
+/* autocomplete */
+input.autocomplete-loading
+{
+	background-image:url(autocomplete.gif);
+	background-position: center right;
+	background-repeat:no-repeat;
+}
+ul.autocomplete 
+{
+    position: absolute;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid ButtonShadow;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    color: #000;
+	display:none;
+	z-index:1000;
+}
+ul.autocomplete li 
+{
+  display: block; 
+  padding: 0.3em; 
+  overflow: hidden;
+  width: 100%;
+  cursor:pointer;
+}
+
+ul.autocomplete li.selected 
+{
+  background-color: Highlight ; 
+  color: #fff;
+}
+</style>
+
+	</c:if>
+ 
+</html>
