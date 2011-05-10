@@ -16,7 +16,7 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="ordernumber" title="Bestellnummer"/> 
+          <shept-pager:sort sortCol="number.id" title="Bestellnummer"/> 
         </th>  
         <th nowrap="nowrap"> 
           <shept-pager:sort sortCol="date" title="Datum"/> 

@@ -20,9 +20,11 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.ForeignKey;
 import org.shept.persistence.ModelCreation;
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.StringUtils;
 
 @Entity
-public class Order implements Serializable, ModelCreation {
+public class Order implements Serializable, ModelCreation, Cloneable {
 	/**
 	 * 
 	 */
@@ -133,11 +135,26 @@ public class Order implements Serializable, ModelCreation {
 
 	@Transient
 	public String getOrdernumberString() {
-		Integer numId = this.getNumber().getId();
-		if (numId != null)
-			return numId.toString();
-		else
+		if (number == null) {
 			return "";
+		}
+		Integer numId = this.getNumber().getId();
+		if (numId == null) {
+			return "";
+		}
+		return numId.toString();
+	}
+
+	/**
+	 * return a copy of this object without identifying infos that can be saved as a copy
+	 */
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		Order copy = BeanUtils.instantiate(this.getClass());
+		BeanUtils.copyProperties(this, copy, new String[]{"id"});
+		copy.setNumber(new OrderNumber());
+		copy.setDate(Calendar.getInstance());
+		return copy;
 	}
 
 	/**
@@ -149,8 +166,4 @@ public class Order implements Serializable, ModelCreation {
 		this.customer = customer;
 	}
 
-	public void initialize(String str) {
-		this.date = Calendar.getInstance();
-		this.number = new OrderNumber();
-	}
 }
