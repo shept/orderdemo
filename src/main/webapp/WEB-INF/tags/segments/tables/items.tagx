@@ -48,10 +48,10 @@
           <form:input path="itemnumber" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
-          <form:input path="name" cssErrorClass="sheptFieldError"/> 
+          <form:input path="name" cssErrorClass="sheptFieldError" size="50" /> 
         </td>  
         <td> 
-          <form:input path="quantity" cssErrorClass="sheptFieldError"/> 
+          <form:input path="quantity" cssErrorClass="sheptFieldError" size="10" /> 
         </td>  
         <td> 
           <form:select path="unit_id"> 
@@ -60,7 +60,7 @@
           </form:select> 
         </td>  
         <td> 
-          <form:input path="price" cssErrorClass="sheptFieldError"/> 
+          <form:input path="price" cssErrorClass="sheptFieldError" size="10" /> 
         </td>  
         <td> 
           <form:select path="vatrate_id"> 
