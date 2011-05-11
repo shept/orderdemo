@@ -41,15 +41,17 @@
         <td > 
           <form:input path="quantity" cssErrorClass="sheptFieldError"  cssStyle="width: 95%" /> 
         </td>  
-        <td style="width: 95%" > 
+        <td style="width: 95%; padding-left: 5px;" > 
           <c:choose> 
             <c:when test="${isTransient}"> 
-              <form:input path="itemIdComplete" id="${rowPathId}itemIdComplete" autocomplete="off" cssStyle="width: 95%; min-width: 20em;"/>  
+              <form:input path="itemIdComplete" id="${rowPathId}itemIdComplete" autocomplete="off" cssStyle="width: 95%; min-width: 20em; "/>  
               <script> 
 					$("#${rowPathId}itemIdComplete").autocomplete("autoComplete/items", {minChars:3});
               </script> 
             </c:when>  
-            <c:otherwise>${rowObject.item.name}</c:otherwise> 
+            <c:otherwise>
+            	${rowObject.item.name}
+            </c:otherwise> 
           </c:choose> 
         </td>  
         <td>${rowObject.price}</td>  

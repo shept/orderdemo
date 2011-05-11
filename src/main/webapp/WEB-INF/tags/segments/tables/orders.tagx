@@ -16,7 +16,7 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="number.id" title="Bestellnummer"/> 
+          <shept-pager:sort sortCol="number.id" title="B.-Nr."/> 
         </th>  
         <th nowrap="nowrap"> 
           <shept-pager:sort sortCol="date" title="Datum"/> 
@@ -37,7 +37,7 @@
  --> 
         </td>  
         <td> 
-          <form:input path="date" cssErrorClass="sheptFieldError"/> 
+          <form:input path="date" disabled="true" cssErrorClass="sheptFieldError" size="9" /> 
         </td>  
         <td> 
           <shept-opt:chainRow chainName="orderItems" defaultText="orderItems"/> 

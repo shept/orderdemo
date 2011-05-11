@@ -164,6 +164,13 @@ public void initialize(Order order) {
 	this.order = order;
 }
 
+/**
+ * set a default quantity when initialized
+ */
+public void initialize(String test) {
+	this.quantity = 1;
+}
+
 @Transient
 public Integer getPrice() {
 	if (quantity == null || getItem() == null || getItem().getPrice() == null) {
