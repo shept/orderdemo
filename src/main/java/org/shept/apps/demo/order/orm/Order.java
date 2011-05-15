@@ -151,9 +151,10 @@ public class Order implements Serializable, ModelCreation, Cloneable {
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		Order copy = BeanUtils.instantiate(this.getClass());
-		BeanUtils.copyProperties(this, copy, new String[]{"id"});
+		BeanUtils.copyProperties(this, copy, new String[]{"id", "version"});
 		copy.setNumber(new OrderNumber());
 		copy.setDate(Calendar.getInstance());
+		copy.setOrderItems(new ArrayList<OrderItem>());  // by default our copy shall not contain items
 		return copy;
 	}
 

@@ -6,14 +6,26 @@
 
 <hibernate-mapping package="org.shept.apps.demo.order.orm">
 
-	<!-- query returning sum of all items -->
+	<!-- query returning total amount of all items of a given order -->
 	<query name="qryOrderSum">
 		select sum(quantity * item.price) from OrderItem where order.id = :orderId
 	</query>
 
-	<!-- query returning sum of all items -->
+	<!-- query returning count of all items of a given order -->
 	<query name="qryOrderCount">
 		select count(*) from OrderItem where order.id = :orderId
 	</query>
+
+	<!-- query returning total amount of all items group by order.id of a given customer -->
+	<query name="qryOrderSum4Customer">
+		select order.id as orderId, sum(quantity * item.price) as orderSum from OrderItem oi where oi.order.customer.id = :customerId group by order
+	</query>
+
+	<!-- query returning count of all items group by order.id of a given customer -->
+	<query name="qryOrderCount4Customer">
+		select order.id as orderId, count(*) as itemCount from OrderItem oi where oi.order.customer.id = :customerId group by order
+	</query>
+
+	
 
 </hibernate-mapping>

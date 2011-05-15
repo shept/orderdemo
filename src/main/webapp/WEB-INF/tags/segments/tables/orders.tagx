@@ -23,6 +23,8 @@
         </th>  
         <th/>  
         <th/> 
+        <th/>  
+        <th/> 
       </tr> 
     </jsp:attribute>
      
@@ -38,9 +40,32 @@
         </td>  
         <td> 
           <form:input path="date" disabled="true" cssErrorClass="sheptFieldError" size="9" /> 
-        </td>  
+        </td> 
+        
+        <c:set var="itemCount" value="0" />
+		<c:forEach var="tmpCount" items="${counts}" >
+			<c:if test="${tmpCount[0] eq rowObject.id}">
+				<c:set var="itemCount" value="${tmpCount[1]}" />
+			</c:if>
+		</c:forEach>
+		
+		<td>
+			${itemCount}
+		</td>
+         
+        <c:set var="orderSum" value="0" />
+		<c:forEach var="tmpSum" items="${sums}" >
+			<c:if test="${tmpSum[0] eq rowObject.id}">
+				<c:set var="orderSum" value="${tmpSum[1]}" />
+			</c:if>
+		</c:forEach>
+		
+		<td>
+			${orderSum}
+		</td>
+         
         <td> 
-          <shept-opt:chainRow chainName="orderItems" defaultText="orderItems"/> 
+          <shept-opt:chainRow chainName="orderItems" enabled="true" defaultText="orderItems" /> 
         </td>  
         <td> 
           <shept-opt:confirmDeleteRow/> 
@@ -49,7 +74,7 @@
     </jsp:attribute> 
      
     <jsp:attribute name="tabSubmit"> 
-      <shept-opt:submission/> 
+      <shept-opt:submission disabled="true" /> 
     </jsp:attribute> 
   </shept-core:table> 
 </jsp:root>

@@ -53,9 +53,17 @@
             	${rowObject.item.name}
             </c:otherwise> 
           </c:choose> 
-        </td>  
-        <td>${rowObject.price}</td>  
-        <td>${rowObject.totalPrice}</td>  
+        </td>
+        
+        <spring:bind path="item.price">
+        	<td>
+        		<spring:transform value="${rowObject.price}"/>
+        	</td>  
+        	<td>
+        		<spring:transform value="${rowObject.totalPrice}"/>
+        	</td>
+		</spring:bind>
+          
         <td> 
           <shept-opt:confirmDeleteRow/> 
         </td> 

@@ -46,7 +46,7 @@
 			<app:menu />
 			<app:locale />
 
-			<form:form id="main" enctype="multipart/form-data" method="post" >
+			<form:form id="main" method="post" >
 				<div id="content">
 					<h1>${formTitle}</h1>
 					<shept-core:error />

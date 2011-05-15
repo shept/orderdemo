@@ -59,6 +59,9 @@ public class SheptOrderDao extends HibernateDaoSupportExtended implements Serial
 			boolean newModel = DaoUtils.isNewModel(this, oi);
 			if (newModel) {
 				if (modelCreation == null || modelCreation.isCreationAllowed(oi)) {
+					if (DaoUtils.isNewModel(this, oi.getOrder())) {
+						this.getHibernateTemplate().save(oi.getOrder());
+					}
 					this.getHibernateTemplate().save(oi);											
 				}
 			} else {

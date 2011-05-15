@@ -28,10 +28,9 @@
 		</property>
 	</bean>
 
-<!-- NOTE these are example segments -->
 	<bean name="customers" parent="baseSegmentListConfig">
 		<property name="entityClass" value="org.shept.apps.demo.order.orm.Customer" />
-		<property name="filterClass" value="org.shept.apps.demo.order.web.controller.filter.CustomerFilter" />
+		<property name="filterClass" value="org.shept.apps.demo.order.web.controller.filters.CustomerFilter" />
 		<property name="componentBindingInitializer">
 			<bean parent="bindingInitializer" >
 				<property name="calendarEditors">
@@ -50,12 +49,22 @@
 
 	<bean name="orders" parent="sheptDataGridTemplate">
 		<property name="entityClass" value="org.shept.apps.demo.order.orm.Order" />
+		<property name="componentPostprocessor" ref="calculateOrdersPostProcessor" />
 	</bean>
 
 	<bean name="orderItems" parent="sheptDataGridTemplate">
 		<property name="entityClass" value="org.shept.apps.demo.order.orm.OrderItem" />
 		<property name="newModelSize" value="3" />
 		<property name="pageSize" value="25" />
+		<property name="componentBindingInitializer">
+			<bean parent="bindingInitializer" >
+				<property name="customEditors">
+					<map>
+					  <entry key="item.price" value-ref="priceFormat" />
+					</map>
+				</property>
+ 			</bean>
+		</property>
 		<property name="componentPostprocessors">
 			<list>
 				<ref bean="commonPostProcessor" />
@@ -75,6 +84,22 @@
 
 	<bean id="commonPostProcessor" class="org.shept.apps.demo.order.web.controller.postprocessors.CommonPostProcessor" />
 	<bean id="calculateOrderItemsPostProcessor" class="org.shept.apps.demo.order.web.controller.postprocessors.CalculateOrderItemsPostProcessor" />
+	<bean id="calculateOrdersPostProcessor" class="org.shept.apps.demo.order.web.controller.postprocessors.CalculateOrdersPostProcessor" />
 
+
+  	<bean id="priceFormat" class="org.shept.org.springframework.beans.CustomEditorHolder">
+  		<constructor-arg index="0" >
+  			<bean class="org.springframework.beans.propertyeditors.CustomNumberEditor" >
+  				<constructor-arg index="0" value="java.lang.Integer" />
+  				<constructor-arg index="1" >
+  					<bean class="java.text.DecimalFormat" >
+  						<constructor-arg index="0" value="#,##0.00" />
+  					</bean>						  					
+  				</constructor-arg>
+  				<constructor-arg index="2" value="true" />
+  			</bean>
+  		</constructor-arg>
+  		<constructor-arg index="1" value="java.lang.Integer" />
+  	</bean>
 
 </beans>
