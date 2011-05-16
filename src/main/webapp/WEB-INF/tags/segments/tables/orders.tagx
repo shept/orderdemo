@@ -21,8 +21,12 @@
         <th nowrap="nowrap"> 
           <shept-pager:sort sortCol="date" title="Datum"/> 
         </th>  
-        <th/>  
-        <th/> 
+        <th>
+          Anz.         
+        </th>  
+        <th>
+          Summe
+        </th> 
         <th/>  
         <th/> 
       </tr> 
@@ -49,7 +53,7 @@
 			</c:if>
 		</c:forEach>
 		
-		<td>
+		<td style="text-align: right;">
 			${itemCount}
 		</td>
          
@@ -60,8 +64,8 @@
 			</c:if>
 		</c:forEach>
 		
-		<td>
-			${orderSum}
+		<td style="text-align: right;">
+        	${orderSum}
 		</td>
          
         <td> 

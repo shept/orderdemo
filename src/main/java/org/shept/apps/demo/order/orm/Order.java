@@ -1,6 +1,7 @@
 package org.shept.apps.demo.order.orm;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -21,7 +22,6 @@ import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.ForeignKey;
 import org.shept.persistence.ModelCreation;
 import org.springframework.beans.BeanUtils;
-import org.springframework.util.StringUtils;
 
 @Entity
 public class Order implements Serializable, ModelCreation, Cloneable {
@@ -166,5 +166,5 @@ public class Order implements Serializable, ModelCreation, Cloneable {
 	public void initialize(Customer customer) {
 		this.customer = customer;
 	}
-
+	
 }

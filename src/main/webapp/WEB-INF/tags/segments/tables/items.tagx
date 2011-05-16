@@ -28,7 +28,7 @@
           <shept-pager:sort sortCol="unit.name" title="Einheit"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="price1" title="Preis"/> 
+          <shept-pager:sort sortCol="price" title="Preis"/> 
         </th>  
         <th nowrap="nowrap"> 
           <shept-pager:sort sortCol="vatrate.rate" title="MwSt Satz"/> 
@@ -60,7 +60,7 @@
           </form:select> 
         </td>  
         <td> 
-          <form:input path="price1" cssErrorClass="sheptFieldError" size="10" cssStyle="text-align: right;" /> 
+          <form:input path="price" cssErrorClass="sheptFieldError" size="10" cssStyle="text-align: right;" /> 
         </td>  
         <td> 
           <form:select path="vatrate_id"> 

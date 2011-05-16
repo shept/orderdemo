@@ -3,6 +3,7 @@
  */
 package org.shept.apps.demo.order.web.controller.postprocessors;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -30,7 +31,7 @@ public class CalculateOrderItemsPostProcessor implements ComponentPostprocessor 
 	public void postHandle(WebRequest request, ModelAndView modelAndView,
 			String componentPath) {
 		PageableList<OrderItem> ois = (PageableList<OrderItem>) ComponentUtils.getComponent(modelAndView, componentPath);
-		Long sum = 0L;
+		BigDecimal sum = BigDecimal.ZERO;
 		Long count = 0L;
 		if (ois.getSource().size() > 0) {
 			OrderItem oi = ois.getSource().get(0);
@@ -38,7 +39,7 @@ public class CalculateOrderItemsPostProcessor implements ComponentPostprocessor 
 			
 			List res = dao.getHibernateTemplateExtended().findByNamedQueryAndNamedParam("qryOrderSum", "orderId", order.getId());
 			if (res.size() > 0 ){
-				sum = (Long) res.get(0);
+				sum = (BigDecimal) res.get(0);
 			}
 
 			res = dao.getHibernateTemplateExtended().findByNamedQueryAndNamedParam("qryOrderCount", "orderId", order.getId());

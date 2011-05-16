@@ -38,7 +38,7 @@ private String name;
 
 private String itemnumber;
 
-private Integer price;
+private BigDecimal price;
 
 private List<OrderItem> orderItems = new ArrayList<OrderItem>();
 
@@ -51,8 +51,6 @@ private Vatrate vatrate;
 private Integer unit_id;
 
 private Integer vatrate_id;
-
-private BigDecimal price1;
 
 @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 public Integer getId() {
@@ -98,20 +96,6 @@ public String getItemnumber() {
  */
 public void setItemnumber(String itemnumber) {
 	this.itemnumber = itemnumber;
-}
-
-/**
- * @return the price
- */
-public Integer getPrice() {
-	return price;
-}
-
-/**
- * @param price the price to set
- */
-public void setPrice(Integer price) {
-	this.price = price;
 }
 
 @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "item")
@@ -217,20 +201,18 @@ public boolean isTransient() {
 }
 
 /**
- * @return the price1
+ * @return the price
  */
-public BigDecimal getPrice1() {
-	return price1;
+public BigDecimal getPrice() {
+	return price;
 }
 
 /**
- * @param price1 the price1 to set
+ * @param price the price to set
  */
-public void setPrice1(BigDecimal price1) {
-	this.price1 = price1;
+public void setPrice(BigDecimal price) {
+	this.price = price;
 }
-
-
 
 
 }

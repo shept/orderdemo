@@ -1,6 +1,7 @@
 package org.shept.apps.demo.order.orm;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,11 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.ForeignKey;
 import org.shept.persistence.ModelCreation;
-import org.springframework.util.StringUtils;
 
 @Entity
 public class OrderItem  implements Serializable, ModelCreation{
@@ -174,19 +172,19 @@ public void initialize(String test) {
 }
 
 @Transient
-public Integer getPrice() {
+public BigDecimal getPrice() {
 	if (quantity == null || getItem() == null || getItem().getPrice() == null) {
-		return 0;
+		return BigDecimal.ZERO;
 	}
 	return getItem().getPrice();
 }
 
 @Transient
-public Integer getTotalPrice() {
+public BigDecimal getTotalPrice() {
 	if (quantity == null || getItem() == null || getItem().getPrice() == null) {
-		return 0;
+		return BigDecimal.ZERO;
 	}
-	return quantity * getItem().getPrice();
+	return getItem().getPrice().multiply(new BigDecimal(quantity));
 }
 
 }
