@@ -60,7 +60,7 @@
 			<bean parent="bindingInitializer" >
 				<property name="customEditors">
 					<map>
-					  <entry key="item.price" value-ref="priceFormat" />
+					  <entry key="item.price1" value-ref="priceFormat" />
 					</map>
 				</property>
  			</bean>
@@ -77,9 +77,19 @@
 	</bean>
 
 	<bean name="items" parent="sheptDataGridTemplate">
-		<property name="pageSize" value="50" />
+		<property name="pageSize" value="20" />
 		<property name="entityClass" value="org.shept.apps.demo.order.orm.Item" />
 		<property name="componentPostprocessor" ref="commonPostProcessor" />
+		<property name="componentBindingInitializer">
+			<bean parent="bindingInitializer" >
+				<property name="customEditors">
+					<map>
+					  <entry key="price1" value-ref="priceFormat" />
+					  <entry key="quantity" value-ref="numberFormat" />
+					</map>
+				</property>
+ 			</bean>
+		</property>
 	</bean>
 
 	<bean id="commonPostProcessor" class="org.shept.apps.demo.order.web.controller.postprocessors.CommonPostProcessor" />
@@ -87,19 +97,16 @@
 	<bean id="calculateOrdersPostProcessor" class="org.shept.apps.demo.order.web.controller.postprocessors.CalculateOrdersPostProcessor" />
 
 
-  	<bean id="priceFormat" class="org.shept.org.springframework.beans.CustomEditorHolder">
-  		<constructor-arg index="0" >
-  			<bean class="org.springframework.beans.propertyeditors.CustomNumberEditor" >
-  				<constructor-arg index="0" value="java.lang.Integer" />
-  				<constructor-arg index="1" >
-  					<bean class="java.text.DecimalFormat" >
-  						<constructor-arg index="0" value="#,##0.00" />
-  					</bean>						  					
-  				</constructor-arg>
-  				<constructor-arg index="2" value="true" />
-  			</bean>
-  		</constructor-arg>
-  		<constructor-arg index="1" value="java.lang.Integer" />
-  	</bean>
+	<bean id="priceFormat" class="org.shept.apps.demo.order.NumberFormatFactory" >
+		<property name="locale" value="de" />
+		<property name="pattern" value="#,##0.00" />
+		<property name="editClass" value="java.math.BigDecimal" />
+	</bean>
 
+	<bean id="numberFormat" class="org.shept.apps.demo.order.NumberFormatFactory" >
+		<property name="locale" value="de" />
+		<property name="pattern" value="#,##0.0##" />
+		<property name="editClass" value="java.lang.Double" />
+	</bean>
+	
 </beans>

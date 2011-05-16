@@ -1,6 +1,7 @@
 package org.shept.apps.demo.order.orm;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,6 +51,8 @@ private Vatrate vatrate;
 private Integer unit_id;
 
 private Integer vatrate_id;
+
+private BigDecimal price1;
 
 @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 public Integer getId() {
@@ -211,6 +214,20 @@ public boolean isCreationAllowed(Object arg0) {
 @Transient
 public boolean isTransient() {
 	return getId() == null;
+}
+
+/**
+ * @return the price1
+ */
+public BigDecimal getPrice1() {
+	return price1;
+}
+
+/**
+ * @param price1 the price1 to set
+ */
+public void setPrice1(BigDecimal price1) {
+	this.price1 = price1;
 }
 
 

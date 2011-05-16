@@ -1,6 +1,7 @@
+-- create schema s1;	-- needed for apgdiff
 create table s1.Address (id  serial not null, addressType int4, city varchar(255), country varchar(255), number varchar(255), street varchar(255), version int4, zipcode varchar(255), customer_id int4, primary key (id));
 create table s1.Customer (id  serial not null, birthdate date, firstName varchar(255), image bytea, male bool, name varchar(255), version int4, primary key (id));
-create table s1.Item (id  serial not null, itemnumber varchar(255), name varchar(255), price int4, quantity float8, unit_id int4 not null, vatrate_id int4 not null, version int4, primary key (id));
+create table s1.Item (id  serial not null, itemnumber varchar(255), name varchar(255), price int4, price1 numeric(19, 2), quantity float8, unit_id int4 not null, vatrate_id int4 not null, version int4, primary key (id));
 create table s1.Order (id  serial not null, date timestamp, version int4, customer_id int4, number_id int4, primary key (id));
 create table s1.OrderItem (id  serial not null, item_id int4, name varchar(255), quantity int4, version int4, order_id int4, primary key (id));
 create table s1.OrderNumber (id  serial not null, primary key (id));
