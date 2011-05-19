@@ -23,7 +23,7 @@
 		<developer>
 			<id>gka</id>
 			<name>Gerno Kaufmann</name>
-			<email>gkaufmann@compuserve.com</email>
+			<email>gka@shept.org</email>
 			<organization>Shept</organization>
 			<organizationUrl>http://shept.org/</organizationUrl>
 			<roles>
@@ -46,7 +46,7 @@
 			</resource>
 		</resources>
 
-		<finalName>sheptorder-${version}</finalName>
+		<finalName>sheptorder-${project.version}</finalName>
 	
 	</build>
 	
