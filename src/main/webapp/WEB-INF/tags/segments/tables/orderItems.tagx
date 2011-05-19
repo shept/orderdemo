@@ -17,16 +17,16 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th style="width: 1%;" > 
-          <shept-pager:sort sortCol="quantity" title="Anzahl"/> 
+          <shept-pager:sort sortCol="quantity" code="quantity"/> 
         </th>  
         <th style="width: 95%; nowrap:nowrap"> 
-          <shept-pager:sort sortCol="allItems" title="Artikel" disabled="true" /> 
+          <shept-pager:sort sortCol="allItems" code="items" disabled="true" /> 
         </th>  
         <th> 
-          <shept-pager:sort sortCol="item.price" title="Preis"/> 
+          <shept-pager:sort sortCol="item.price" code="price"/> 
         </th>  
         <th > 
-          <shept-pager:sort sortCol="name" title="Summe" disabled="true" /> 
+          <shept-pager:sort sortCol="name" code="total" disabled="true" /> 
         </th>  
         <th/>  
         <th/> 
@@ -73,7 +73,11 @@
     </jsp:attribute>
      
     <jsp:attribute name="tabSubmit"> 
-      <div>Gesamtanzahl: ${count} Gesamtsumme: ${sum}</div>  
+      <c:set var="noi"/>
+      <c:set var="tot"/>
+	  <spring:message var="noi" code="numberofitems" />
+	  <spring:message var="tot" code="totalamount" />
+      <div>${noi}: ${count} ${tot}: ${sum}</div>  
       <shept-opt:submission/> 
     </jsp:attribute> 
   </shept-core:table> 
