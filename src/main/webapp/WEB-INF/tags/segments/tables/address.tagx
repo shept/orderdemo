@@ -16,22 +16,22 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="addressType" title="Typ"/> 
+          <shept-pager:sort sortCol="addressType" code="type"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="country" title="Land"/> 
+          <shept-pager:sort sortCol="country" code="country"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="city" title="Ort"/> 
+          <shept-pager:sort sortCol="city" code="city"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="zipcode" title="Plz"/> 
+          <shept-pager:sort sortCol="zipcode" code="zip"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="street" title="Strasse"/> 
+          <shept-pager:sort sortCol="street" code="street"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="number" title="Nummer"/> 
+          <shept-pager:sort sortCol="number" code="number"/> 
         </th>  
         <th/>  
         <th/> 

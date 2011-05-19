@@ -16,22 +16,22 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="itemnumber" title="Artikelnummer"/> 
+          <shept-pager:sort sortCol="itemnumber" code="itemnumber"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="name" title="Name"/> 
+          <shept-pager:sort sortCol="name" code="name"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="quantity" title="Menge"/> 
+          <shept-pager:sort sortCol="quantity" code="quantity"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="unit.name" title="Einheit"/> 
+          <shept-pager:sort sortCol="unit.name" code="unit"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="price" title="Preis"/> 
+          <shept-pager:sort sortCol="price" code="price"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="vatrate.rate" title="MwSt Satz"/> 
+          <shept-pager:sort sortCol="vatrate.rate" code="vatrate"/> 
         </th>  
         <th/>  
         <th/>  
