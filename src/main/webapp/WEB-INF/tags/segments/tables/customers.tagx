@@ -48,11 +48,11 @@
           <form:input path="birthdate" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
-          <c:set var="wom"/>
-          <c:set var="man"/>
-	      <spring:message var="wom" code="woman" />
-	      <spring:message var="man" code="man" />
-          <form:checkbox label="${rowObject.male ? '${man}' : '${wom}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${man}':'${wom}'" />
+          <c:set var="fem"/>
+          <c:set var="mal"/>
+	      <spring:message var="fem" code="female" />
+	      <spring:message var="mal" code="male" />
+          <form:checkbox label="${rowObject.male ? '${mal}' : '${fem}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mal}':'${fem}'" />
         </td>  
         <td> 
           <c:set var="address"/>
