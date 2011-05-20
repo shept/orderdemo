@@ -43,8 +43,14 @@
           <c:set var="mr"/>
 	      <spring:message var="mrs" code="mrs" />
 	      <spring:message var="mr" code="mr" />
+          <!--
           <form:checkbox label="${rowObject.male ? '${mr}' : '${mrs}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mr}':'${mrs}'" />
-         /td>  
+   		  <br/>
+   		  -->
+   		  <form:radiobutton path="male" value="true" /> ${mr}<br/>
+   		  <form:radiobutton path="male" value="false" /> ${mrs}<br/>
+   		  
+         </td>  
         <td> 
           <form:input path="name" cssErrorClass="sheptFieldError"/> 
         </td>  
