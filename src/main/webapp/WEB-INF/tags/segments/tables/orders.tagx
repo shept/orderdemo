@@ -16,16 +16,16 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="number.id" title="B.-Nr."/> 
+          <shept-pager:sort sortCol="number.id" code="ordernumber"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="date" title="Datum"/> 
+          <shept-pager:sort sortCol="date" code="date"/> 
         </th>  
         <th>
-          Anz.         
+	      <spring:message code="numberof" />
         </th>  
         <th>
-          Summe
+	      <spring:message code="total" />
         </th> 
         <th/>  
         <th/> 
@@ -69,7 +69,9 @@
 		</td>
          
         <td> 
-          <shept-opt:chainRow chainName="orderItems" enabled="true" defaultText="orderItems" /> 
+          <c:set var="oitems"/>
+	      <spring:message var="oitems" code="orderItems" />
+          <shept-opt:chainRow chainName="orderItems" enabled="true" defaultText="${oitems}" /> 
         </td>  
         <td> 
           <shept-opt:confirmDeleteRow/> 

@@ -48,13 +48,21 @@
           <form:input path="birthdate" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
-          <form:checkbox label="${rowObject.male ? 'Mann' : 'Frau'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'Mann':'Frau'" />
+          <c:set var="wom"/>
+          <c:set var="man"/>
+	      <spring:message var="wom" code="woman" />
+	      <spring:message var="man" code="man" />
+          <form:checkbox label="${rowObject.male ? '${man}' : '${wom}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${man}':'${wom}'" />
         </td>  
         <td> 
-          <shept-opt:chainRow chainName="addresses" defaultText="address"/> 
+          <c:set var="address"/>
+	      <spring:message var="address" code="address" />
+          <shept-opt:chainRow chainName="addresses" defaultText="${address}"/> 
         </td>  
         <td> 
-          <shept-opt:chainRow chainName="orders" defaultText="orders"/> 
+          <c:set var="orders"/>
+	      <spring:message var="orders" code="orders" />
+          <shept-opt:chainRow chainName="orders" defaultText="${orders}"/> 
         </td>  
         <td> 
           <shept-opt:confirmDeleteRow/> 
