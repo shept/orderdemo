@@ -16,6 +16,9 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
+          <shept-pager:sort sortCol="male" code="salutation"/> 
+        </th>  
+        <th nowrap="nowrap"> 
           <shept-pager:sort sortCol="name" code="name"/> 
         </th>  
         <th nowrap="nowrap"> 
@@ -23,9 +26,6 @@
         </th>  
         <th nowrap="nowrap"> 
           <shept-pager:sort sortCol="birthday" code="birthday"/> 
-        </th>  
-        <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="male" code="gender"/> 
         </th>  
         <th/>  
         <th/>  
@@ -39,6 +39,13 @@
           <shept-opt:iconRow/> 
         </td>  
         <td> 
+          <c:set var="mrs"/>
+          <c:set var="mr"/>
+	      <spring:message var="mrs" code="mrs" />
+	      <spring:message var="mr" code="mr" />
+          <form:checkbox label="${rowObject.male ? '${mr}' : '${mrs}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mr}':'${mrs}'" />
+         /td>  
+        <td> 
           <form:input path="name" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
@@ -46,13 +53,6 @@
         </td>  
         <td> 
           <form:input path="birthdate" cssErrorClass="sheptFieldError"/> 
-        </td>  
-        <td> 
-          <c:set var="fem"/>
-          <c:set var="mal"/>
-	      <spring:message var="fem" code="female" />
-	      <spring:message var="mal" code="male" />
-          <form:checkbox label="${rowObject.male ? '${mal}' : '${fem}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mal}':'${fem}'" />
         </td>  
         <td> 
           <c:set var="address"/>
