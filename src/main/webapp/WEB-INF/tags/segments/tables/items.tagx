@@ -10,7 +10,8 @@
 	xmlns:shept-opt="http://www.shept.org/tags/shept-opt" 
 	xmlns:shept-core="http://www.shept.org/tags/shept-core" 
 	version="2.0">
-	  
+
+  
   <shept-core:table> 
     <jsp:attribute name="tabHeader"> 
       <tr class="sheptTableHeader"> 
@@ -28,10 +29,12 @@
           <shept-pager:sort sortCol="unit.name" code="unit"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="price" code="price"/> 
+	      <spring:message code="price" />
+          	${currencySymbol}
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="vatrate.rate" code="vatrate"/> 
+	      <spring:message code="vatrate" />
+	      %
         </th>  
         <th/>  
         <th/>  
