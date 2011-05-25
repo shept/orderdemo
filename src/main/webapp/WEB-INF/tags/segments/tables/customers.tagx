@@ -15,7 +15,12 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <table:sort sortCol="male" code="salutation"/> 
+          <c:set var="mrs"/>
+          <c:set var="mr"/>
+	      <spring:message var="mrs" code="mrs" />
+	      <spring:message var="mr" code="mr" />
+   		  &#160;&#160;<img src="${images}/16x16/user.png" alt="${mr}" title="${mr}"></img>
+    	  <img src="${images}/16x16/user_female.png" alt="${mrs}" title="${mrs}"></img>
         </th>  
         <th nowrap="nowrap"> 
           <table:sort sortCol="firstName" code="firstName"/> 
@@ -38,19 +43,13 @@
           <table:iconRow/> 
         </td>  
         <td> 
-          <c:set var="mrs"/>
-          <c:set var="mr"/>
-	      <spring:message var="mrs" code="mrs" />
-	      <spring:message var="mr" code="mr" />
           <!--
           <form:checkbox label="${rowObject.male ? '${mr}' : '${mrs}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mr}':'${mrs}'" />
    		  <br/>
    		  -->
    		  <form:radiobutton path="male" value="true" />
-   		  <img src="${images}/16x16/user.png" alt="${mr}" title="${mr}"></img>
    		  
    		  <form:radiobutton path="male" value="false" />
-    	  <img src="${images}/16x16/user_female.png" alt="${mrs}" title="${mrs}"></img>
    		  
          </td>  
         <td> 

@@ -18,7 +18,7 @@
           <table:sort sortCol="number.id" code="ordernumber"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <table:sort sortCol="date" title="date"/> 
+          <table:sort sortCol="date" code="date"/> 
         </th>  
         <th>
 	      <spring:message code="numberof" />
