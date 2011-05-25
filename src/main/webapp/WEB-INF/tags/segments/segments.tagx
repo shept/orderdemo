@@ -1,11 +1,11 @@
 <jsp:root
 	xmlns:jsp="http://java.sun.com/JSP/Page"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:shept-core="http://www.shept.org/tags/shept-core"
+	xmlns:shept="http://www.shept.org/tags/shept"
 
-	xmlns:view="urn:jsptagdir:/WEB-INF/tags/segments/views"
-	xmlns:filter="urn:jsptagdir:/WEB-INF/tags/segments/filters"
-	xmlns:table="urn:jsptagdir:/WEB-INF/tags/segments/tables"
+	xmlns:views="urn:jsptagdir:/WEB-INF/tags/segments/views"
+	xmlns:filters="urn:jsptagdir:/WEB-INF/tags/segments/filters"
+	xmlns:tables="urn:jsptagdir:/WEB-INF/tags/segments/tables"
 	version="2.0"
 >
 
@@ -13,39 +13,39 @@
   
   <!-- start with your first subForm as shown in this template -->
 	<c:when test="${subFormName eq 'customers'}">
-	 <shept-core:subForm headerCode="customer" >
-		<filter:customers />
-		<table:customers />
-	 </shept-core:subForm>
+	 <shept:subForm headerCode="customer" >
+		<filters:customers />
+		<tables:customers />
+	 </shept:subForm>
 	</c:when>
 
   <!-- start with your first subForm as shown in this template -->
 	<c:when test="${subFormName eq 'addresses'}">
-	 <shept-core:subForm headerCode="address" >
-	   <table:address />
-	 </shept-core:subForm>
+	 <shept:subForm headerCode="address" >
+	   <tables:address />
+	 </shept:subForm>
 	</c:when>
 
   <!-- start with your first subForm as shown in this template -->
 	<c:when test="${subFormName eq 'orders'}">
-	 <shept-core:subForm headerCode="order" >
-	   <table:orders />
-	 </shept-core:subForm>
+	 <shept:subForm headerCode="order" >
+	   <tables:orders />
+	 </shept:subForm>
 	</c:when>
 
   <!-- start with your first subForm as shown in this template -->
 	<c:when test="${subFormName eq 'orderItems'}">
-	 <shept-core:subForm headerCode="orderItems" >
-	   <table:orderItems />
-	 </shept-core:subForm>
+	 <shept:subForm headerCode="orderItems" >
+	   <tables:orderItems />
+	 </shept:subForm>
 	</c:when>
 
   <!-- start with your first subForm as shown in this template -->
 	<c:when test="${subFormName eq 'items'}">
-	 <shept-core:subForm headerCode="items" >
-		<filter:items />
-		<table:items />
-	 </shept-core:subForm>
+	 <shept:subForm headerCode="items" >
+		<filters:items />
+		<tables:items />
+	 </shept:subForm>
 	</c:when>
 
 	

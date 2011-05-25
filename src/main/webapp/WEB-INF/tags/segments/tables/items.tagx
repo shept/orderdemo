@@ -6,32 +6,31 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core" 
 	xmlns:spring="http://www.springframework.org/tags" 
 	xmlns:form="http://www.springframework.org/tags/form" 
-	xmlns:shept-pager="http://www.shept.org/tags/shept-pager" 
-	xmlns:shept-opt="http://www.shept.org/tags/shept-opt" 
-	xmlns:shept-core="http://www.shept.org/tags/shept-core" 
+	xmlns:shept="http://www.shept.org/tags/shept" 
+	xmlns:table="http://www.shept.org/tags/table" 
 	version="2.0">
 	  
-  <shept-core:table> 
+  <table:table> 
     <jsp:attribute name="tabHeader"> 
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="itemnumber" code="itemnumber"/> 
+          <table:sort sortCol="itemnumber" code="itemnumber"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="name" code="name"/> 
+          <table:sort sortCol="name" code="name"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="quantity" code="quantity"/> 
+          <table:sort sortCol="quantity" code="quantity"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="unit.name" code="unit"/> 
+          <table:sort sortCol="unit.name" code="unit"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="price" code="price"/> 
+          <table:sort sortCol="price" code="price"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="vatrate.rate" code="vatrate"/> 
+          <table:sort sortCol="vatrate.rate" code="vatrate"/> 
         </th>  
         <th/>  
         <th/>  
@@ -42,7 +41,7 @@
     <jsp:attribute name="tabRow"> 
       <tr class="${rowClassDefault}"> 
         <td> 
-          <shept-opt:iconRow/> 
+          <table:iconRow/> 
         </td>  
         <td> 
           <form:input path="itemnumber" cssErrorClass="sheptFieldError"/> 
@@ -69,13 +68,13 @@
           </form:select> 
         </td>  
         <td> 
-          <shept-opt:confirmDeleteRow/> 
+          <table:confirmDeleteRow/> 
         </td> 
       </tr> 
     </jsp:attribute> 
      
     <jsp:attribute name="tabSubmit"> 
-      <shept-opt:submission/> 
+      <shept:submission/> 
     </jsp:attribute> 
-  </shept-core:table> 
+  </table:table> 
 </jsp:root>

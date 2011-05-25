@@ -4,7 +4,7 @@
   <groupId>org.shept</groupId>
   <artifactId>apps.sheptorder</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <name>SheptOrder</name>
 
 	<developers>
@@ -36,6 +36,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<shept.version>1.0.3</shept.version>
   	</properties>
 
 	<build>
@@ -119,15 +120,9 @@
 		<dependency>
     		<groupId>org.shept</groupId>
     		<artifactId>shept-core</artifactId>
-    		<version>1.0.2-SNAPSHOT</version>
+    		<version>${shept.version}</version>
 		</dependency>
 
-		<dependency>
-    		<groupId>org.hibernate</groupId>
-    		<artifactId>hibernate-annotations</artifactId>
-    		<version>3.4.0.GA</version>
-		</dependency>
-				
 		<!-- javax servlet version 2.3 is requested by jcaptcha
 			(it should be there of scope 'provided' but it isn't ...)
 			so we need to omit here -->

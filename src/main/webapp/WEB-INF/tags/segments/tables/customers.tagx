@@ -6,26 +6,25 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core" 
 	xmlns:spring="http://www.springframework.org/tags" 
 	xmlns:form="http://www.springframework.org/tags/form" 
-	xmlns:shept-pager="http://www.shept.org/tags/shept-pager" 
-	xmlns:shept-opt="http://www.shept.org/tags/shept-opt" 
-	xmlns:shept-core="http://www.shept.org/tags/shept-core" 
+	xmlns:shept="http://www.shept.org/tags/shept" 
+	xmlns:table="http://www.shept.org/tags/table" 
 	version="2.0">
 	  
-  <shept-core:table> 
+  <table:table> 
     <jsp:attribute name="tabHeader"> 
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="name" code="name"/> 
+          <table:sort sortCol="name" code="name"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="firstName" code="firstName"/> 
+          <table:sort sortCol="firstName" code="firstName"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="birthday" code="birthday"/> 
+          <table:sort sortCol="birthday" code="birthday"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <shept-pager:sort sortCol="male" code="gender"/> 
+          <table:sort sortCol="male" code="gender"/> 
         </th>  
         <th/>  
         <th/>  
@@ -36,7 +35,7 @@
     <jsp:attribute name="tabRow"> 
       <tr class="${rowClassDefault}"> 
         <td> 
-          <shept-opt:iconRow/> 
+          <table:iconRow/> 
         </td>  
         <td> 
           <form:input path="name" cssErrorClass="sheptFieldError"/> 
@@ -51,19 +50,19 @@
           <form:checkbox label="${rowObject.male ? 'Mann' : 'Frau'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'Mann':'Frau'" />
         </td>  
         <td> 
-          <shept-opt:chainRow chainName="addresses" defaultText="address"/> 
+          <table:chainRow chainName="addresses" defaultText="address"/> 
         </td>  
         <td> 
-          <shept-opt:chainRow chainName="orders" defaultText="orders"/> 
+          <table:chainRow chainName="orders" defaultText="orders"/> 
         </td>  
         <td> 
-          <shept-opt:confirmDeleteRow/> 
+          <table:confirmDeleteRow/> 
         </td> 
       </tr> 
     </jsp:attribute>
      
     <jsp:attribute name="tabSubmit"> 
-      <shept-opt:submission/> 
+      <shept:submission/> 
     </jsp:attribute> 
-  </shept-core:table> 
+  </table:table> 
 </jsp:root>
