@@ -9,16 +9,17 @@
 	xmlns:shept="http://www.shept.org/tags/shept" 
 	xmlns:table="http://www.shept.org/tags/table" 
 	version="2.0">
+
+          <c:set var="mrs"/>
+          <c:set var="mr"/>
+	      <spring:message var="mrs" code="mrs" />
+	      <spring:message var="mr" code="mr" />
 	  
   <table:table> 
     <jsp:attribute name="tabHeader"> 
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <c:set var="mrs"/>
-          <c:set var="mr"/>
-	      <spring:message var="mrs" code="mrs" />
-	      <spring:message var="mr" code="mr" />
    		  &#160;&#160;<img src="${images}/16x16/user.png" alt="${mr}" title="${mr}"></img>
     	  <img src="${images}/16x16/user_female.png" alt="${mrs}" title="${mrs}"></img>
         </th>  
@@ -47,9 +48,9 @@
           <form:checkbox label="${rowObject.male ? '${mr}' : '${mrs}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mr}':'${mrs}'" />
    		  <br/>
    		  -->
-   		  <form:radiobutton path="male" value="true" />
+   		  <form:radiobutton path="male" value="true" title="${mr}"/>
    		  
-   		  <form:radiobutton path="male" value="false" />
+   		  <form:radiobutton path="male" value="false" title="${mrs}"/>
    		  
          </td>  
         <td> 
