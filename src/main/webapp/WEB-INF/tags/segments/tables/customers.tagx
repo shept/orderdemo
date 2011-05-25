@@ -18,10 +18,10 @@
           <table:sort sortCol="male" code="salutation"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <table:sort sortCol="name" code="name"/> 
+          <table:sort sortCol="firstName" code="firstName"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <table:sort sortCol="firstName" code="firstName"/> 
+          <table:sort sortCol="name" code="name"/> 
         </th>  
         <th nowrap="nowrap"> 
           <table:sort sortCol="birthday" code="birthday"/> 
@@ -46,15 +46,18 @@
           <form:checkbox label="${rowObject.male ? '${mr}' : '${mrs}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mr}':'${mrs}'" />
    		  <br/>
    		  -->
-   		  <form:radiobutton path="male" value="true" /> ${mr}<br/>
-   		  <form:radiobutton path="male" value="false" /> ${mrs}<br/>
+   		  <form:radiobutton path="male" value="true" />
+   		  <img src="${images}/16x16/user.png" alt="${mr}" title="${mr}"></img>
+   		  
+   		  <form:radiobutton path="male" value="false" />
+    	  <img src="${images}/16x16/user_female.png" alt="${mrs}" title="${mrs}"></img>
    		  
          </td>  
         <td> 
-          <form:input path="name" cssErrorClass="sheptFieldError"/> 
+          <form:input path="firstName" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
-          <form:input path="firstName" cssErrorClass="sheptFieldError"/> 
+          <form:input path="name" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
           <form:input path="birthdate" cssErrorClass="sheptFieldError"/> 

@@ -12,18 +12,18 @@
 	  <table > 
 		<tr>
 			<th>
-				<spring:message code="customer.name" />
+				<spring:message code="customer.firstName" />
 			</th>
 			<th>
-				<spring:message code="customer.firstName" />
+				<spring:message code="customer.name" />
 			</th>
 		</tr>
 		<tr>
 			<td>
-				<form:input path="name" cssStyle="margin-right: 8px" cssErrorClass="sheptFieldError" />
+				<form:input path="firstName" cssStyle="margin-right: 8px" cssErrorClass="sheptFieldError" />
 			</td>
 			<td>
-				<form:input path="firstName" cssStyle="margin-right: 8px" cssErrorClass="sheptFieldError" />
+				<form:input path="name" cssStyle="margin-right: 8px" cssErrorClass="sheptFieldError" />
 			</td>
 		</tr>
 	  </table>
