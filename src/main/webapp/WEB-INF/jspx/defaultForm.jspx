@@ -29,6 +29,7 @@
 	<app:includeJQueryAutocomplete />
 	
 	<app:global />
+	<c:set var="currencySymbol" value="€" scope="request" />
 	
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

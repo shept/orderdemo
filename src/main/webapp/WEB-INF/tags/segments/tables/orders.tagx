@@ -15,16 +15,17 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
-          <table:sort sortCol="number.id" title="B.-Nr."/> 
+          <table:sort sortCol="number.id" code="ordernumber"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <table:sort sortCol="date" title="Datum"/> 
+          <table:sort sortCol="date" title="date"/> 
         </th>  
         <th>
-          Anz.         
+	      <spring:message code="numberof" />
         </th>  
         <th>
-          Summe
+	      <spring:message code="total" />
+          	${currencySymbol}
         </th> 
         <th/>  
         <th/> 
@@ -68,7 +69,9 @@
 		</td>
          
         <td> 
-          <table:chainRow chainName="orderItems" enabled="true" defaultText="orderItems" /> 
+          <c:set var="oitems"/>
+	      <spring:message var="oitems" code="orderItems" />
+          <table:chainRow chainName="orderItems" enabled="true" defaultText="${oitems}" /> 
         </td>  
         <td> 
           <table:confirmDeleteRow/> 

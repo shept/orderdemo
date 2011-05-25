@@ -21,11 +21,13 @@
         <th style="width: 95%; nowrap:nowrap"> 
           <table:sort sortCol="allItems" code="items" disabled="true" /> 
         </th>  
-        <th> 
-          <table:sort sortCol="item.price" code="price"/> 
+        <th nowrap="nowrap"> 
+	      <spring:message code="price" />
+          	${currencySymbol}
         </th>  
-        <th > 
-          <table:sort sortCol="name" code="total" disabled="true" /> 
+        <th nowrap="nowrap"> 
+ 	      <spring:message code="total" />
+          	${currencySymbol}
         </th>  
         <th/>  
         <th/> 
@@ -76,7 +78,7 @@
       <c:set var="tot"/>
 	  <spring:message var="noi" code="numberofitems" />
 	  <spring:message var="tot" code="totalamount" />
-      <div>${noi}: ${count} ${tot}: ${sum}</div>  
+      <div>${noi}: ${count} ${tot}: ${sum} ${currencySymbol}</div>  
       <shept:submission/> 
     </jsp:attribute> 
   </table:table> 

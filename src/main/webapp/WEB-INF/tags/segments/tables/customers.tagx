@@ -15,6 +15,9 @@
       <tr class="sheptTableHeader"> 
         <th/>  
         <th nowrap="nowrap"> 
+          <table:sort sortCol="male" code="salutation"/> 
+        </th>  
+        <th nowrap="nowrap"> 
           <table:sort sortCol="name" code="name"/> 
         </th>  
         <th nowrap="nowrap"> 
@@ -22,9 +25,6 @@
         </th>  
         <th nowrap="nowrap"> 
           <table:sort sortCol="birthday" code="birthday"/> 
-        </th>  
-        <th nowrap="nowrap"> 
-          <table:sort sortCol="male" code="gender"/> 
         </th>  
         <th/>  
         <th/>  
@@ -38,6 +38,19 @@
           <table:iconRow/> 
         </td>  
         <td> 
+          <c:set var="mrs"/>
+          <c:set var="mr"/>
+	      <spring:message var="mrs" code="mrs" />
+	      <spring:message var="mr" code="mr" />
+          <!--
+          <form:checkbox label="${rowObject.male ? '${mr}' : '${mrs}'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'${mr}':'${mrs}'" />
+   		  <br/>
+   		  -->
+   		  <form:radiobutton path="male" value="true" /> ${mr}<br/>
+   		  <form:radiobutton path="male" value="false" /> ${mrs}<br/>
+   		  
+         </td>  
+        <td> 
           <form:input path="name" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
@@ -47,13 +60,14 @@
           <form:input path="birthdate" cssErrorClass="sheptFieldError"/> 
         </td>  
         <td> 
-          <form:checkbox label="${rowObject.male ? 'Mann' : 'Frau'}" id="male" name="male" path="male" cssErrorClass="sheptFieldError" onchange="this.nextSibling.innerHTML = this.checked?'Mann':'Frau'" />
+          <c:set var="address"/>
+	      <spring:message var="address" code="address" />
+          <table:chainRow chainName="addresses" defaultText="${address}"/> 
         </td>  
         <td> 
-          <table:chainRow chainName="addresses" defaultText="address"/> 
-        </td>  
-        <td> 
-          <table:chainRow chainName="orders" defaultText="orders"/> 
+          <c:set var="orders"/>
+	      <spring:message var="orders" code="orders" />
+          <table:chainRow chainName="orders" defaultText="${orders}"/> 
         </td>  
         <td> 
           <table:confirmDeleteRow/> 
