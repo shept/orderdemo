@@ -6,7 +6,7 @@
 >
 
 <div id="footer">
-	<a class="${servletPath eq '/impressum.sh' ? 'naviSel' : 'navi'}" href="http:imprint.sh">
+	<a class="${servletPath eq '/impressum.sh' ? 'naviSel' : 'navi'}" href="https://www.teamsched.com/docs/info/imprint">
 		<spring:message code="imprint" />
 	</a>
 </div>

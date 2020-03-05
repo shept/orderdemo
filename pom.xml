@@ -4,7 +4,7 @@
   <groupId>org.shept</groupId>
   <artifactId>apps.sheptorder</artifactId>
   <packaging>war</packaging>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <name>SheptOrder</name>
 
 	<developers>
@@ -36,7 +36,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<shept.version>1.0.4-SNAPSHOT</shept.version>
+		<shept.version>1.0.5</shept.version>
   	</properties>
 
 	<build>
@@ -110,12 +110,6 @@
 		</dependency>
 
 		<dependency>
-    		<groupId>taglibs</groupId>
-		    <artifactId>standard</artifactId>
-		    <version>1.1.2</version>
-		</dependency>
-
-		<dependency>
 		    <groupId>postgresql</groupId>
 		    <artifactId>postgresql</artifactId>
 		    <version>8.3-606.jdbc3</version>
@@ -140,13 +134,10 @@
     		<version>${shept.version}</version>
 		</dependency>
 
-		<!-- javax servlet version 2.3 is requested by jcaptcha
-			(it should be there of scope 'provided' but it isn't ...)
-			so we need to omit here -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
-            <version>2.3</version>
+            <version>2.5</version>
 		    <scope>provided</scope>
         </dependency>
 

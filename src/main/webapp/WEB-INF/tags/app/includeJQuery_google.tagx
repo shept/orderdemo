@@ -7,14 +7,14 @@
 
 	<c:if test="${empty isJQueryIncluded}">
 		<c:set var="isJQueryIncluded" value="true" scope="request"/>
-		<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/cupertino/jquery-ui.css" rel="stylesheet" />
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js">
+		<link type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/cupertino/jquery-ui.css" rel="stylesheet" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js">
 			<!-- jspx fix comment / Tomcat problem ?  -->
 		</script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.js">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.js">
 			<!-- jspx fix comment / Tomcat problem ?  -->
 		</script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/i18n/jquery-ui-i18n.min.js">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/i18n/jquery-ui-i18n.min.js">
 			<!-- jspx fix comment / Tomcat problem ?  -->
 		</script>
 	</c:if>

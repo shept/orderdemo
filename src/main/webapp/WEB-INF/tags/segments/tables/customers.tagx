@@ -30,7 +30,7 @@
           <table:sort sortCol="name" code="name"/> 
         </th>  
         <th nowrap="nowrap"> 
-          <table:sort sortCol="birthday" code="birthday"/> 
+          <table:sort sortCol="birthdate" code="birthday"/>
         </th>  
         <th/>  
         <th/>  

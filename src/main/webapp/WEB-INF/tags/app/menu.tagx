@@ -19,11 +19,11 @@
 <div id="coolmenu" >
 	<p class="menuBlankBox">&#160;</p>
 	<a class="${servletPath eq '/customer.shept' ? 'naviSel' : 'navi'}" 
-		href="http:customer.shept" onMouseover="showtext('')" onMouseout="hidetext()">
+		href="https:customer.shept" onMouseover="showtext('')" onMouseout="hidetext()">
 		<spring:message code="customer" />
 	</a>
 	<a class="${servletPath eq '/items.shept' ? 'naviSel' : 'navi'}" 
-		href="http:items.shept" onMouseover="showtext('')" onMouseout="hidetext()">
+		href="https:items.shept" onMouseover="showtext('')" onMouseout="hidetext()">
 		<spring:message code="items" />
 	</a>
 </div>
